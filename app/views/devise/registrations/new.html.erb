@@ -1,29 +1,37 @@
-<h2>Sign up</h2>
+<div class="form-devise">
+  <h2 class="center-tx">Regístrate</h2>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+    <div class="row">
+      <div class="col-s-off-2 col-s-8">
+        <b><%= f.label :email %></b>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"input-ctr space-v" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-s-off-2 col-s-8">
+        <b><%= f.label :nombre %></b>
+        <%= f.text_field :nombre, autocomplete: "nombre", class:"input-ctr space-v" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-s-off-2 col-s-8">
+        <b><%= f.label :password, 'Password' %></b> <i>(6 caracteres mínimo)</i>
+        <%= f.password_field :password, autocomplete: "new-password", class:"input-ctr space-v" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-s-off-2 col-s-8">
+        <b><%= f.label :password_confirmation, 'Confirmación de password' %></b>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"input-ctr space-v" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-s-off-2 col-s-8">
+        <%= f.submit 'Registrarse', class:"btn default space-v" %>
+      </div>
+    </div>
+  <% end %>
+  <%= render "devise/shared/links" %>
+</div>
