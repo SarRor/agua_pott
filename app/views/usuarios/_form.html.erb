@@ -1,4 +1,4 @@
-<%= form_with(model: usuario, local: true) do |form| %>
+<%= form_with(model: usuario, local: true) do |f| %>
   <% if usuario.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(usuario.errors.count, "error") %> prohibited this usuario from being saved:</h2>
@@ -11,37 +11,37 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :nombre %>
-    <%= form.text_field :nombre %>
+  <div class="row">
+    <div class="col-s-off-2 col-s-8">
+      <b><%= f.label :nombre %></b>
+      <%= f.text_field :nombre, autocomplete: "nombre", autofocus: true, class:"input-ctr space-v" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :direccion %>
-    <%= form.text_field :direccion %>
+  <div class="row">
+    <div class="col-s-off-2 col-s-8">
+      <b><%= f.label :direccion %></b>
+      <%= f.text_field :direccion, autocomplete: "direccion", class:"input-ctr space-v" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :telefono %>
-    <%= form.text_field :telefono %>
+  <div class="row">
+    <div class="col-s-off-2 col-s-8">
+      <b><%= f.label :telefono %></b>
+      <%= f.text_field :telefono, autocomplete: "telefono", class:"input-ctr space-v" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
+  <div class="row">
+    <div class="col-s-off-2 col-s-8">
+      <b><%= f.label :email %></b>
+      <%= f.email_field :email, autocomplete: "email", class:"input-ctr space-v" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :imagenes %>
-    <%= form.text_field :imagenes %>
-  </div>
-
-  <div class="field">
-    <%= form.label :clave_de_usuario %>
-    <%= form.text_field :clave_de_usuario %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="row">
+    <div class="col-s-off-2 col-s-8">
+      <%= f.submit 'Crear usuario del agua', class:"btn default space-v" %>
+    </div>
   </div>
 <% end %>
