@@ -10,17 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_23_182432) do
+ActiveRecord::Schema.define(version: 2019_05_26_043919) do
 
   create_table "pagos", force: :cascade do |t|
     t.decimal "cantidad", precision: 6, scale: 2
     t.datetime "fecha_de_pago"
-    t.integer "usuario_id"
     t.string "nota"
     t.string "concepto"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["usuario_id"], name: "index_pagos_on_usuario_id"
+    t.string "usuario_id"
   end
 
   create_table "users", force: :cascade do |t|
